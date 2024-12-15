@@ -5,6 +5,8 @@ using System.Text;
 using System.Threading.Tasks;
 
 using SQLite;
+using SQLiteNetExtensions.Attributes;
+
 namespace FlorutMaraLab7.Models
 {
     public class ShopList
@@ -15,5 +17,8 @@ namespace FlorutMaraLab7.Models
         [MaxLength(250), Unique]
         public string Description { get; set; }
         public DateTime Date { get; set; }
+
+        [ForeignKey(typeof(Shop))]
+        public int ShopID { get; set; }
     }
 }
